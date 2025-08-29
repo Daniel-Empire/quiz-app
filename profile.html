@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Profile</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <header class="container">
+    <h1>Profile</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="quiz.html">Play Quiz</a>
+      <a href="leaderboard.html">Leaderboard</a>
+      <button id="logoutBtn" class="link">Logout</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <h2 id="profileName">User</h2>
+      <p class="muted">Below are your past scores on this device.</p>
+      <table>
+        <thead><tr><th>#</th><th>Score</th><th>Date</th></tr></thead>
+        <tbody id="historyTable"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <script src="js/firebase.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    // Populate user history from localStorage
+    (function() {
+      const user = window.Auth.getCurrentUser();
+      if (!user) return (window.location.href = "index.html");
+      document.getElementById("profileName").textContent = user.username || user.email;
+
+      const allScores = JSON.parse(localStorage.getItem("scores") || "[]");
+      const mine = allScores.filter(s => s.userId === user.id);
+      const tbody = document.getElementById("historyTable");
+      tbody.innerHTML = mine.map((s, i) => (
+        `<tr><td>${i+1}</td><td>${s.score}</td><td>${new Date(s.date).toLocaleString()}</td></tr>`
+      )).join("") || "<tr><td colspan='3' class='muted'>No scores yet.</td></tr>";
+    })();
+  </script>
+</body>
+</html>

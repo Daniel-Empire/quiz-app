@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leaderboard</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <header class="container">
+    <h1>Leaderboard</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="quiz.html">Play Quiz</a>
+      <a href="profile.html" id="profileLink" class="hidden">Profile</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <table class="card">
+      <thead>
+        <tr><th>Rank</th><th>User</th><th>Score</th><th>Date</th></tr>
+      </thead>
+      <tbody id="leaderboardTable"></tbody>
+    </table>
+  </main>
+
+  <script src="js/firebase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/leaderboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz – Play</title>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+  <header class="container">
+    <h1>Quiz</h1>
+    <nav>
+      <a href="leaderboard.html">Leaderboard</a>
+      <a href="profile.html" id="profileLink">Profile</a>
+      <button id="logoutBtn" class="link">Logout</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="card">
+      <div class="row space-between">
+        <div>Player: <strong id="playerName"></strong></div>
+        <div>Question <span id="qIndex">0</span>/<span id="qTotal">0</span></div>
+        <div id="timer">Time: <span id="timeLeft">--</span>s</div>
+      </div>
+    </div>
+
+    <section id="quizBox" class="card">
+      <h2 id="questionText"></h2>
+      <div id="options"></div>
+      <div class="row">
+        <button id="prevBtn" disabled>Prev</button>
+        <button id="nextBtn">Next</button>
+        <button id="submitBtn" class="accent hidden">Submit</button>
+      </div>
+    </section>
+
+    <section id="resultBox" class="card hidden"></section>
+  </main>
+
+  <script src="js/firebase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
