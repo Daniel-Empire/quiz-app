@@ -1,57 +1,36 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quiz App – Login / Signup</title>
+  <title>Quiz App - Login</title>
   <link rel="stylesheet" href="css/style.css"/>
 </head>
 <body>
-  <header class="container">
-    <h1>Quiz App</h1>
-    <nav>
-      <a href="leaderboard.html">Leaderboard</a>
-      <a href="profile.html" id="profileLink" class="hidden">Profile</a>
-    </nav>
-  </header>
+  <h1>Welcome to Quiz App</h1>
 
-  <main class="container grid two-col gap">
-    <section>
-      <h2>Login</h2>
-      <form id="loginForm" class="card">
-        <label>Email
-          <input type="email" id="loginEmail" required placeholder="you@example.com"/>
-        </label>
-        <label>Password
-          <input type="password" id="loginPassword" required placeholder="••••••••"/>
-        </label>
-        <button type="submit">Log In</button>
-      </form>
-    </section>
+  <!-- Login Form -->
+  <form id="loginForm">
+    <h2>Login</h2>
+    <input type="email" id="loginEmail" placeholder="Email" required />
+    <input type="password" id="loginPassword" placeholder="Password" required />
+    <button type="submit">Login</button>
+  </form>
 
-    <section>
-      <h2>Sign Up</h2>
-      <form id="signupForm" class="card">
-        <label>Username
-          <input type="text" id="signupUsername" required placeholder="your nickname"/>
-        </label>
-        <label>Email
-          <input type="email" id="signupEmail" required placeholder="you@example.com"/>
-        </label>
-        <label>Password
-          <input type="password" id="signupPassword" required minlength="6" placeholder="min 6 chars"/>
-        </label>
-        <button type="submit">Create Account</button>
-      </form>
-    </section>
-  </main>
+  <hr>
 
-  <footer class="container">
-    <p class="muted">This demo uses localStorage for auth until Firebase is connected.</p>
-  </footer>
+  <!-- Signup Form -->
+  <form id="signupForm">
+    <h2>Sign Up</h2>
+    <input type="text" id="signupUsername" placeholder="Username" required />
+    <input type="email" id="signupEmail" placeholder="Email" required />
+    <input type="password" id="signupPassword" placeholder="Password" required />
+    <button type="submit">Sign Up</button>
+  </form>
 
+  <!-- (Optional) keep this stub for future Firebase -->
   <script src="js/firebase.js"></script>
+  <!-- Required for login/signup to work now -->
   <script src="js/auth.js"></script>
 </body>
 </html>
